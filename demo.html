@@ -24,14 +24,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" href="#">Bankit Faluda</a>
     </div>
     <div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li><a href="#section1">Section 1</a></li>
-          <li><a href="#section2">Section 2</a></li>
-          <li><a href="#section3">Section 3</a></li>
+          <li><a href="#section1">Slide</a></li>
+          <li><a href="#section2">Video</a></li>
+          <li><a href="#section3">Pie Chart</a></li>
+          <li><a href="#section4">Tables</a></li>
         </ul>
          <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -46,7 +47,7 @@
 </nav>    
 
 <div id="section1" class="container-fluid">
-  <h1>Section 1</h1>
+  <h1>Slide</h1>
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -88,7 +89,7 @@
  
 </div>
 <div id="section2" class="container-fluid">
-  <h1>Section 2</h1>
+  <h1>Video</h1>
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
  <ol class="carousel-indicators">
         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -116,10 +117,110 @@
 </div>
 </div>
 <div id="section3" class="container-fluid">
-  <h1>Section 3</h1>
-  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <h1>Pie Chart</h1>
+  
+<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<script>
+
+
+$(function () {
+
+    // Make monochrome colors and set them as default for all pies
+    Highcharts.getOptions().plotOptions.pie.colors = (function () {
+        var colors = [],
+            base = Highcharts.getOptions().colors[0],
+            i;
+
+        for (i = 0; i < 10; i += 1) {
+            // Start out with a darkened base color (negative brighten), and end
+            // up with a much brighter color
+            colors.push(Highcharts.Color(base).brighten((i - 3) / 7).get());
+        }
+        return colors;
+    }());
+
+    // Build the chart
+    $('#container').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Browser market shares at a specific website, 2014'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Brands',
+            data: [
+                { name: 'Microsoft Internet Explorer', y: 56.33 },
+                { name: 'Chrome', y: 24.03 },
+                { name: 'Firefox', y: 10.38 },
+                { name: 'Safari', y: 4.77 },
+                { name: 'Opera', y: 0.91 },
+                { name: 'Proprietary or Undetectable', y: 0.2 }
+            ]
+        }]
+    });
+});
+</script>
 </div>
+
+<div id="section4" class="container-fluid">
+  <h1>Tables</h1>
+  <div class="container">
+  <h2>Table</h2>                                                                   
+  <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Age</th>
+        <th>City</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Anna</td>
+        <td>Pitt</td>
+        <td>35</td>
+        <td>New York</td>
+        <td>USA</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Brad</td>
+        <td>Pitt</td>
+        <td>40</td>
+        <td>DC</td>
+        <td>US</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+
 
 </body>
 
